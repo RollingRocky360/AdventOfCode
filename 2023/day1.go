@@ -37,7 +37,6 @@ func extractNumber(line string) int {
 
 	num, _ := strconv.Atoi(d1 + d2)
 	return num
-
 }
 
 func day1() {
