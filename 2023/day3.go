@@ -20,7 +20,7 @@ func validPos(grid []string, x, y int) bool {
 	return x >= 0 && x < len(grid) && y >= 0 && y < len(grid[1])
 }
 
-func parseNumberAndMark(grid []string, visited [][]bool, x, y int, mark bool) (int, bool) {
+func parseNumberAndMark(grid []string, visited [][]bool, x, y int) (int, bool) {
 	if !validPos(grid, x, y) || !unicode.IsDigit(rune(grid[x][y])) || visited[x][y] {
 		return 0, false
 	}
@@ -46,7 +46,7 @@ func getSumOfUnvisitedNum(grid []string, visited [][]bool, row, col int) int {
 
 	for i := 0; i < 8; i++ {
 		x, y := delx[i], dely[i]
-		if num, ok := parseNumberAndMark(grid, visited, row+x, col+y, true); ok {
+		if num, ok := parseNumberAndMark(grid, visited, row+x, col+y); ok {
 			sum += num
 		}
 	}
@@ -60,7 +60,7 @@ func getGearRatio(grid []string, visited [][]bool, row, col int) int {
 
 	for i := 0; i < 8; i++ {
 		x, y := delx[i], dely[i]
-		if num, ok := parseNumberAndMark(grid, visited, row+x, col+y, false); ok {
+		if num, ok := parseNumberAndMark(grid, visited, row+x, col+y); ok {
 			prod *= num
 			cnt++
 		}
