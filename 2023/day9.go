@@ -45,7 +45,7 @@ func extrapolate(nums []int) int {
 
 	intermediate := 0
 	for _, level := range reverse(levels) {
-		// intermediate += level[len(level)-1] for part 1
+		// intermediate += level[len(level)-1]  // part 1
 		intermediate = level[0] - intermediate
 	}
 
