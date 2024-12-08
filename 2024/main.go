@@ -1,7 +1,7 @@
 package main
 
-import "github.com/RollingRocky360/AdventOfCode/aoc-2024/day7"
+import "github.com/RollingRocky360/AdventOfCode/aoc-2024/day8"
 
 func main() {
-	day7.Run()
+	day8.Run()
 }
