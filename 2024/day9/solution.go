@@ -81,7 +81,7 @@ func computeChecksum(unzipped []int) int {
 
 func Display(unzipped []int) {
 	for _, block := range unzipped {
-		if block == -1 {
+		if block == FREE_BLOCK {
 			fmt.Print(". ")
 		} else {
 			fmt.Printf("%d ", block)
@@ -95,7 +95,7 @@ func Part1() {
 	unzipped := []int{}
 
 	for i, blockSize := range mapping {
-		filler := -1 // free block
+		filler := FREE_BLOCK
 		if i%2 == 0 {
 			filler = i / 2 // file ID
 		}
@@ -154,7 +154,7 @@ func Part2() {
 
 		copy(unzipped[freeStart:freeEnd+1], unzipped[fileStartPointer:filePointer+1])
 		for i := fileStartPointer; i <= filePointer; i++ {
-			unzipped[i] = -1
+			unzipped[i] = FREE_BLOCK
 		}
 		// Display(unzipped)
 	}
