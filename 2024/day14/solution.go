@@ -21,6 +21,11 @@ type Robot struct {
 	vy int
 }
 
+func (r *Robot) updatePos() {
+	r.px = ((r.px+r.vx)%LEN_X + LEN_X) % LEN_X
+	r.py = ((r.py+r.vy)%LEN_Y + LEN_Y) % LEN_Y
+}
+
 func Display(robots []*Robot) {
 	grid := make([][]bool, LEN_Y)
 	for i := range grid {
@@ -61,11 +66,6 @@ func getQuadrant(x, y int) int {
 		return 3
 	}
 	return 4
-}
-
-func (r *Robot) updatePos() {
-	r.px = ((r.px+r.vx)%LEN_X + LEN_X) % LEN_X
-	r.py = ((r.py+r.vy)%LEN_Y + LEN_Y) % LEN_Y
 }
 
 func Part1() {
